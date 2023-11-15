@@ -9,8 +9,7 @@ interface ItemListProps {
 
 const ItemList: React.FC<ItemListProps> = ({ products, onProductSelected }) => {
   return (
-    <div>
-      <h2>Lista de Produtos</h2>
+    <div className="row">
       {products.map(product => (
         <Products key={product.id} product={product} onProductSelected={onProductSelected} />
       ))}

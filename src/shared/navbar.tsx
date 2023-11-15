@@ -6,8 +6,7 @@ import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import { BsCart4 } from "react-icons/bs";
 import { Button, alpha, styled } from '@mui/material';
-import '../../assets/MKS.svg'
-const Search = styled('div')(({ theme }) => ({
+const Count = styled('div')(({ theme }) => ({
   position: 'relative',
   borderRadius: theme.shape.borderRadius,
   backgroundColor: alpha(theme.palette.common.white, 0.15),
@@ -21,11 +20,14 @@ const Search = styled('div')(({ theme }) => ({
     width: 'auto',
   },
 }));
-
-const NavBar: React.FC = () => {
+interface SelectedItemCountProps {
+  itemCount: number;
+  onToggleListVisibility: () => void;
+}
+const NavBar: React.FC<SelectedItemCountProps> = ({ itemCount, onToggleListVisibility }) => {
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
+      <AppBar position="fixed">
         <Toolbar>
           <IconButton
             size="large"
@@ -35,11 +37,11 @@ const NavBar: React.FC = () => {
             sx={{ mr: 2 }}
           >
           </IconButton>
-          <Typography
+          <Typography className="align-items-center"
             variant="h6"
             noWrap
             component="div"
-            sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
+            sx={{ flexGrow: 1, display: { xs: 'none', sm: 'flex' } }}
           >
             <svg width="88" height="30" viewBox="0 0 88 30" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M31.4 29L31.36 0.999998H27.08L16.16 19.56L5.04 0.999998H0.76V29H5.72V10.68L14.92 25.8H17.24L26.44 10.44L26.48 29H31.4ZM58.4831 29H64.5631L52.0831 13.52L63.8431 0.999998H58.0031L44.1631 15.36V0.999998H38.9631V29H44.1631V21.84L48.6031 17.28L58.4831 29ZM76.1978 29.4C83.8778 29.4 87.5178 25.56 87.5178 21.08C87.5178 10.8 70.9178 14.68 70.9178 8.72C70.9178 6.6 72.6778 4.92 76.9978 4.92C79.4378 4.92 82.1978 5.64 84.7178 7.12L86.3578 3.08C83.9178 1.48 80.3978 0.599998 77.0378 0.599998C69.3578 0.599998 65.7578 4.44 65.7578 8.96C65.7578 19.36 82.3978 15.4 82.3978 21.44C82.3978 23.52 80.5578 25.08 76.1978 25.08C72.7578 25.08 69.1978 23.8 66.9578 22L65.1578 26.04C67.4778 28.04 71.8378 29.4 76.1978 29.4Z" fill="white" />
@@ -49,11 +51,11 @@ const NavBar: React.FC = () => {
             </svg>
 
           </Typography>
-          <Search>
+          <Count onClick={onToggleListVisibility}>
             <Button variant="contained" className="w-100 d-flex justify-content-between align-items-center">
-              <BsCart4 /> 0
+              <BsCart4 /> {itemCount}
             </Button>
-          </Search>
+          </Count>
 
         </Toolbar>
       </AppBar>

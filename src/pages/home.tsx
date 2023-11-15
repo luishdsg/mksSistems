@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import Products from '../components/products';
-import NavBar from '../components/shared/navbar';
+import NavBar from '../shared/navbar';
 import { Product, ProductWithQuantity, ProductsInterface } from '../interface/products-interface';
 import { getProductsData } from '../services/getProductsData';
 import ItemList from '../components/itemlist';
-import Sidebar from '../components/shared/sidebar';
+import Sidebar from '../shared/sidebar';
 
 const Home: React.FC = () => {
   const [productsData, setProductsData] = useState<ProductsInterface | null>(null);
   const [selectedProducts, setSelectedProducts] = useState<ProductWithQuantity[]>([]);
+  const [isListVisible, setListVisible] = useState(false);
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -50,14 +50,29 @@ const Home: React.FC = () => {
       )
     );
   };
+
+  const toggleListVisibility = () => {
+    setListVisible(!isListVisible);
+  };
+  const closeList = () => {
+    setListVisible(false);
+  };
   return (
     <div>
       {productsData ? (
         <>
-          <NavBar />
-
-          <ItemList products={productsData.products} onProductSelected={handleProductSelected} />
-          <Sidebar selectedProducts={selectedProducts} onProductDeleted={handleProductDeleted} onQuantityChange={handleQuantityChange}/>
+          <NavBar itemCount={selectedProducts.length} onToggleListVisibility={toggleListVisibility} />
+          <section className="container mt-5">
+            <ItemList products={productsData.products} onProductSelected={handleProductSelected} />
+          </section>
+          {isListVisible && (
+            <Sidebar
+              selectedProducts={selectedProducts}
+              onProductDeleted={handleProductDeleted}
+              onQuantityChange={handleQuantityChange}
+              onCloseList={closeList}
+            />
+          )}
         </>
       ) : (
         <p>Carregando...</p>
