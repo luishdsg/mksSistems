@@ -4,6 +4,7 @@ import { Product, ProductWithQuantity, ProductsInterface } from '../interface/pr
 import { getProductsData } from '../services/getProductsData';
 import ItemList from '../components/itemlist';
 import Sidebar from '../shared/sidebar';
+import Footer from '../components/footer';
 
 const Home: React.FC = () => {
   const [productsData, setProductsData] = useState<ProductsInterface | null>(null);
@@ -65,6 +66,7 @@ const Home: React.FC = () => {
           <section className="container mt-5">
             <ItemList products={productsData.products} onProductSelected={handleProductSelected} />
           </section>
+          <Footer/>
           {isListVisible && (
             <Sidebar
               selectedProducts={selectedProducts}

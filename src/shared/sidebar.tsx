@@ -1,9 +1,10 @@
 // src/components/CartSidebar.tsx
 import React from 'react';
 import { ProductWithQuantity } from '../interface/products-interface';
-import { Box, Button, Drawer, List, ListItem, ListItemButton, ListItemText, Typography } from '@mui/material';
+import { Box, Button, Drawer, List, ListItem, ListItemButton, ListItemText, Modal, Typography } from '@mui/material';
 import { IoIosRemoveCircleOutline, IoMdCloseCircle } from "react-icons/io";
 import { IoAddCircleOutline } from "react-icons/io5";
+import { IoIosPin } from "react-icons/io";
 import { MontserratSmall, imgProd } from '../styles/styles';
 interface SideBarProps {
     selectedProducts: ProductWithQuantity[];
@@ -12,6 +13,11 @@ interface SideBarProps {
     onCloseList: () => void;
 }
 const Sidebar: React.FC<SideBarProps> = ({ selectedProducts, onProductDeleted, onQuantityChange, onCloseList }) => {
+    const [open, setOpen] = React.useState(false);
+
+    const handleOpen = () => setOpen(true);
+
+    const handleClose = () => setOpen(false);
 
     const handleDelete = (productId: number) => {
         onProductDeleted(productId);
@@ -62,7 +68,22 @@ const Sidebar: React.FC<SideBarProps> = ({ selectedProducts, onProductDeleted, o
                     <Typography className="text-light cartBuy text-left">Total:</Typography>
                     <Typography className="text-light cartBuy text-left">{`R$ ${parseFloat(calculateTotalValue().toFixed(2))}`}</Typography>
                 </div>
-                <Button variant="contained" sx={{ height: '77px' }} className="w-100 cartBuy bg-black position-absolute text-center bottom-0">Finalizar Compra</Button>
+                <Button onClick={handleOpen} variant="contained" sx={{ height: '77px' }} className="w-100 cartBuy bg-black position-absolute text-center bottom-0">Finalizar Compra</Button>
+                <Modal
+                    open={open}
+                    onClose={handleClose}
+                    aria-labelledby="modal-modal-title"
+                    aria-describedby="modal-modal-description"
+                >
+                    <Box sx={{transform: 'translate(-50%, -50%)'}} component="div" className="w-75 position-absolute top-50 start-50 border rounded-3xl bg-light p-4">
+                        <Typography id="modal-modal-title" className="h1" variant="h1">
+                            Compra Concluida
+                        </Typography>
+                        <Typography className="d-flex align-items-center text-left" id="modal-modal-description" sx={{ mt: 2 }}>
+                        <IoIosPin /> Acompanhe o trajeto do produta até a chegada 
+                        </Typography>
+                    </Box>
+                </Modal>
             </Box>
         </Drawer>
     );

@@ -80,3 +80,8 @@ body {
 .btnCard {
     min-width: 30px !important;
 }
+
+.footer{
+    background-color: #EEEEEE;
+    height: 34px
+}
