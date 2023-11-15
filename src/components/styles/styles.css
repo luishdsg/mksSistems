@@ -25,8 +25,17 @@ body {
     border-radius: 20px;
     border: 0px solid rgba(255, 166, 0, 0);
 }
+
+
+/* tools */
 .max-200{
     max-width: 200px;
     font-size: 10px;
 }
-
+.css-1160xiw-MuiPaper-root-MuiDrawer-paper{
+    min-width:220px;
+    width: 25%;
+    max-width: 400px;
+    background-color: #0F52BA !important;
+    color: white !important;
+}

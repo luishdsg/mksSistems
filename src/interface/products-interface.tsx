@@ -1,6 +1,6 @@
 // src/interfaces/Product.ts
 
-export interface Product {
+type Product  ={
   id: number;
   name: string;
   brand: string;
@@ -9,11 +9,12 @@ export interface Product {
   price: number;
 }
 
-export interface ProductsInterface {
+type ProductWithQuantity = Product & {
+  quantity: number;
+};
+
+type ProductsInterface = {
   products: Product[];
   count: number;
 }
-export interface CartSidebarProps extends ProductsInterface {
-  cart: Product[];
-  removeFromCart: (product: Product) => void;
-}
+export type { ProductsInterface, Product, ProductWithQuantity  };

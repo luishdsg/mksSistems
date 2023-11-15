@@ -56,3 +56,8 @@ export const colProducts = {
     boxShadow: '0px 0px 24px -10px black'
 
   }
+
+  export const sidebar = {
+    maxWidth: '418px',
+    width: '25%'
+  }
