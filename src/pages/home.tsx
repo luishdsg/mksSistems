@@ -13,12 +13,7 @@ const Home: React.FC = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const data = await getProductsData({
-          page: 1,
-          rows: 8,
-          sortBy: 'id',
-          orderBy: 'DESC',
-        });
+        const data = await getProductsData();
         setProductsData(data);
       } catch (error) {
         console.error(error);
