@@ -3,7 +3,7 @@ import { ProductsInterface } from '../interface/products-interface';
 import { ProductParamasInterface } from '../interface/products-params-interface';
 
 
-const apiUrl = 'https://mks-frontend-challenge-04811e8151e6.herokuapp.com/api/v1';
+const apiUrl = 'https://raw.githubusercontent.com/luishdsg/mksSistems/refs/heads/main/db.json';
 
 export const getProductsData = async (params?: ProductParamasInterface): Promise<ProductsInterface> => {
   try {
