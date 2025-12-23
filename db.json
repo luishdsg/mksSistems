@@ -1,0 +1,69 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Smartphone X1",
+      "brand": "TechNova",
+      "photo": "https://picsum.photos/300/300?random=1",
+      "description": "Smartphone moderno com excelente desempenho.",
+      "price": 1999.99
+    },
+    {
+      "id": 2,
+      "name": "Notebook Air 14",
+      "brand": "BytePro",
+      "photo": "https://picsum.photos/300/300?random=2",
+      "description": "Notebook leve e rápido para o dia a dia.",
+      "price": 4299.9
+    },
+    {
+      "id": 3,
+      "name": "Fone Bluetooth Beat",
+      "brand": "SoundMax",
+      "photo": "https://picsum.photos/300/300?random=3",
+      "description": "Som limpo com cancelamento de ruído.",
+      "price": 299.9
+    },
+    {
+      "id": 4,
+      "name": "Smartwatch Fit Pro",
+      "brand": "MoveOn",
+      "photo": "https://picsum.photos/300/300?random=4",
+      "description": "Monitoramento completo de saúde.",
+      "price": 499.99
+    },
+    {
+      "id": 5,
+      "name": "Teclado Mecânico RGB",
+      "brand": "KeyStorm",
+      "photo": "https://picsum.photos/300/300?random=5",
+      "description": "Teclas precisas com iluminação RGB.",
+      "price": 389.9
+    },
+    {
+      "id": 50,
+      "name": "Impressora WiFi Ink",
+      "brand": "PrintX",
+      "photo": "https://picsum.photos/300/300?random=50",
+      "description": "Impressão rápida e sem fio.",
+      "price": 899.9
+    },
+    {
+      "id": 51,
+      "name": "Headset Gamer Ultra",
+      "brand": "GameCore",
+      "photo": "https://picsum.photos/300/300?random=51",
+      "description": "Áudio 7.1 imersivo para jogos.",
+      "price": 599.99
+    },
+    {
+      "id": 52,
+      "name": "Webcam Full HD",
+      "brand": "StreamLab",
+      "photo": "https://picsum.photos/300/300?random=52",
+      "description": "Imagem nítida para lives e reuniões.",
+      "price": 259.9
+    }
+  ],
+  "count": 52
+}
